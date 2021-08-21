@@ -1,4 +1,5 @@
 const fs = require("fs");
+const chalk = require("chalk");
 
 const getNotes = () => {
   return "Your notes...";
@@ -15,11 +16,20 @@ const addNote = (title, body) => {
       body: body,
     });
     saveNotes(notes);
-    console.log("new note added");
-  }else{
-    console.log("Note title taken");
+    console.log(chalk.green("new note added"));
+  } else {
+    console.log(chalk.red("Note title taken"));
   }
 };
+
+const removeNote = (title) => {
+  const notes = loadNotes();
+  const notesToKeep = notes.filter((note)=>{
+    return note.title !== title
+  })
+saveNotes(notesToKeep)
+  }
+
 
 const saveNotes = (notes) => {
   const dataJSON = JSON.stringify(notes);
@@ -35,7 +45,9 @@ const loadNotes = () => {
     return [];
   }
 };
+
 module.exports = {
   getNotes: getNotes,
   addNote: addNote,
+  removeNote: removeNote,
 };
