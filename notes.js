@@ -18,18 +18,23 @@ const addNote = (title, body) => {
     saveNotes(notes);
     console.log(chalk.green("new note added"));
   } else {
-    console.log(chalk.red("Note title taken"));
+    console.log(chalk.red("Note title is unavailable"));
   }
 };
 
 const removeNote = (title) => {
   const notes = loadNotes();
-  const notesToKeep = notes.filter((note)=>{
-    return note.title !== title
-  })
-saveNotes(notesToKeep)
+  const notesToKeep = notes.filter((note) => {
+    return note.title !== title;
+  });
+  if (notes.length > notesToKeep.length) {
+  console.log(chalk.green("Note revomed"));
+    saveNotes(notesToKeep);
+    console.log("Note removed");
+  } else {
+    console.log(chalk.red("No note found"));
   }
-
+};
 
 const saveNotes = (notes) => {
   const dataJSON = JSON.stringify(notes);
