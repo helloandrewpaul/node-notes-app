@@ -41,7 +41,7 @@ yargs.command({
   command: "list",
   describe: "create list",
   handler: () => {
-    console.log(chalk.blue("list note"));
+    console.log(chalk.green("list note"));
   },
 });
 
@@ -50,7 +50,7 @@ yargs.command({
   describe: "read note",
   builder: {},
   handler: () => {
-    console.log(chalk.blue("read  note"));
+    console.log(chalk.green("read  note"));
   },
 });
 
