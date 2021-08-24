@@ -14,42 +14,44 @@ yargs.command({
     body: {
       describe: "Note body",
       demandOption: true,
-      type: "string"
+      type: "string",
     },
   },
-  handler: (argv) => {
-  notes.addNote(argv.title,argv.body)
-
+  handler(argv) {
+    notes.addNote(argv.title, argv.body);
   },
 });
 
 yargs.command({
   command: "remove",
   describe: "Remove note",
-  builder:{
-    title:{
+  builder: {
+    title: {
       describe: "Note title",
       demandOption: true,
-      type:"string"
-    }
+      type: "string",
+    },
   },
-  handler: (argv) => {
-notes.removeNote(argv.title)  },
+  handler(argv) {
+    notes.removeNote(argv.title);
+  },
 });
 
 yargs.command({
   command: "list",
   describe: "create list",
-  handler: () => {
-    console.log(chalk.blue("list note"));
+  handler() {
+    notes.listNotes()
+
+  
   },
 });
 
 yargs.command({
   command: "read",
   describe: "read note",
-  handler: () => {
-    console.log(chalk.blue("read  note"));
+  handler() {
+    console.log(chalk.blue("read note"));
   },
 });
 
