@@ -48,9 +48,6 @@ yargs.command({
 yargs.command({
   command: "read",
   describe: "read note",
-  builder: {
-    title: "read list"
-  },
   handler: () => {
     console.log(chalk.blue("read  note"));
   },
