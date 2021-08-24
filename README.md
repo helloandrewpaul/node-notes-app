@@ -10,3 +10,6 @@ node app.js remove --title="string" --body="string"
 
 List all titles:
 node app.js list
+
+Read note:
+node app.js read --title="string"
