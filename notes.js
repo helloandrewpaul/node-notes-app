@@ -28,9 +28,8 @@ const removeNote = (title) => {
     return note.title !== title;
   });
   if (notes.length > notesToKeep.length) {
-  console.log(chalk.green("Note revomed"));
     saveNotes(notesToKeep);
-    console.log("Note removed");
+    console.log(chalk.green("Note revomed"));
   } else {
     console.log(chalk.red("No note found"));
   }
