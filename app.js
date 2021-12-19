@@ -45,8 +45,6 @@ yargs.command({
   describe: "create list",
   handler() {
     notes.listNotes()
-
-  
   },
 });
 
